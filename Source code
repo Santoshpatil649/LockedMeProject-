@@ -1,0 +1,165 @@
+package com.company.lockers;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.util.*;
+
+public class LockedMe 
+{
+	 static final String projectFilesPath="C:\\Users\\Santosh\\Desktop\\LockedMeFiles";
+	 
+
+	public static void main(String[] args) {
+		
+		Scanner obj = new Scanner(System.in);
+		int ch;
+		
+			do{
+				LockedMe.displayMenu();
+	
+			System.out.println("Enter Your Choice: ");
+			ch=Integer.parseInt(obj.nextLine());
+			
+			switch(ch) 
+			{
+			case 1: LockedMe.getAllFiles();
+			break;
+			case 2: LockedMe.createNewFile();
+			break;
+			case 3: LockedMe.deleteFile();
+			break;
+			case 4: LockedMe.searchFile();
+			break;
+			case 5: LockedMe.exit();
+			break;
+			default: System.out.println("Your input number is incorrect. Choose correct Number");
+			break;
+			}
+			}
+			while(ch>0);
+			
+}
+	
+public static void displayMenu()
+{
+	System.out.println("*********************************************************************");
+	System.out.println("\t\t Welcome to Company Lockers - LockedMe,com");
+	System.out.println("\t\t Developer Name : Santosh Patil");
+	System.out.println("*********************************************************************");
+	System.out.println("\t\t1. Display All Files");
+	System.out.println("\t\t2. Add a File to existing Directory");
+	System.out.println("\t\t3. Delete a File");
+	System.out.println("\t\t4. Search a File");
+	System.out.println("\t\t5. Exit");
+	
+}
+public static void getAllFiles() 
+{
+	File folder = new File(projectFilesPath);
+	File[] listOfFiles= folder.listFiles();
+	
+	if(listOfFiles.length>0) 
+	{
+		System.out.println("Files List is displayed below: ");
+		for(var l:listOfFiles)
+		{
+			System.out.println(l.getName());
+		}
+	}
+	else 
+	{
+		System.out.println("No Files exist in directory");
+	}
+}
+
+public static void createNewFile()
+{
+	try
+	{
+		Scanner obj = new Scanner(System.in);
+	String fileName;
+	int linesCount;
+	
+	System.out.println("Enter file name: ");
+	fileName=obj.nextLine();
+	
+	System.out.println("Enter how many number of lines you want add in file: ");
+	linesCount= Integer.parseInt(obj.nextLine());
+	
+	FileWriter fw = new FileWriter(projectFilesPath+"\\"+fileName);
+	
+	for(int i=1; i<=linesCount; i++) 
+	{
+		System.out.println("Enter file content line: ");
+		fw.write(obj.nextLine()+"\n");
+		
+	}
+	System.out.println("File created successfully.");
+	fw.close();
+	
+	}
+	catch(Exception ex)
+	{
+		System.out.println("Some error occured.");
+		
+	}
+}
+
+public static void deleteFile()
+{
+	Scanner obj = new Scanner(System.in);
+	try
+	{
+		String fileName;
+		System.out.println("Enter file name to be deleted: ");
+	    fileName=obj.nextLine();
+		
+		File fl=new File(projectFilesPath+"\\"+fileName);
+		
+		if(fl.exists())
+		{
+			fl.delete();
+			System.out.println("File deleted successfully.");
+		}
+		else 
+		{
+			System.out.println("File do not exist.");
+		}
+	}
+	catch(Exception ex)
+	{
+		System.out.println("some error occured.");
+	}
+}
+
+public static void searchFile()
+{
+	Scanner obj = new Scanner(System.in);
+	try
+	{
+		String fileName;
+		System.out.println("Enter file name to be searched: ");
+	    fileName=obj.nextLine();
+		
+		File fl=new File(projectFilesPath+"\\"+fileName);
+		
+		if(fl.exists())
+		{
+			System.out.println("File is available.");
+		}
+		else
+		{
+			System.out.println("File is not available.");
+		}
+	}
+		catch(Exception ex)
+		{
+			System.out.println("some error occured.");
+		}
+}
+public static void exit()
+{
+	System.out.println("Thank you user.");
+}
+
+}
