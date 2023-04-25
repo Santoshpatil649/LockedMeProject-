@@ -1,18 +1,18 @@
-DESCRIPTION
+**DESCRIPTION**
 
-Project objective: 
+**Project objective: **
 
 As a Full Stack Developer, design and develop an airline booking portal named as FlyAway. Use the GitHub repository to manage the project artifacts. 
 
  
 
-Background of the problem statement:
+**Background of the problem statement:**
 
 FlyAway is a ticket-booking portal that lets people book flights on their website.
 
  
 
-The website have the following features:
+**The website have the following features:**
 
 ● A search form in the homepage to allow entry of travel details, like the date of travel, source, destination, and the number of persons.
 
@@ -35,7 +35,7 @@ For the above features to work, there will be an admin backend with the followin
 The goal of the company is to deliver a high-end quality product as early as possible. 
  
 
-The flow and features of the application:
+**The flow and features of the application:**
 
 ● Plan more than two sprints to complete the application
 
@@ -48,7 +48,7 @@ The flow and features of the application:
 
  
 
-The following requirements met:
+**The requirements met:**
 
 ● The source code should be pushed to your GitHub repository. You need to document the steps and write the algorithms in it.
 
